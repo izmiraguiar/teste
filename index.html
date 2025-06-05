@@ -1,90 +1,81 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acrilisson - Peças em Acrílico</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acrilisson - Peças em Acrílico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .hidden { opacity: 0; transform: translateY(50px); transition: all 0.6s ease-out; }
+        .show { opacity: 1; transform: translateY(0); }
+        #whatsapp-float { position: fixed; bottom: 20px; right: 20px; width: 60px; z-index: 999; }
+        .dark-mode { background-color: #222; color: #fff; }
+        #darkModeToggle { position: fixed; top: 20px; right: 20px; background: #000; color: #fff; padding: 10px; border: none; cursor: pointer; z-index: 1000; }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body>
 
-  <!-- Header -->
-  <header class="bg-white shadow">
-    <div class="container mx-auto flex justify-between items-center p-6">
-      <h1 class="text-2xl font-bold text-indigo-600">Acrilisson</h1>
-      <nav class="space-x-6">
-        <a href="#home" class="hover:text-indigo-600">Home</a>
-        <a href="#catalogo" class="hover:text-indigo-600">Catálogo</a>
-        <a href="#quem-somos" class="hover:text-indigo-600">Quem Somos</a>
-        <a href="#contato" class="hover:text-indigo-600">Contato</a>
-      </nav>
-    </div>
-  </header>
+    <section id="banner-principal" class="hidden">
+        <img src="Imagens/banner.jpg" alt="Banner Acrilisson"> 
+    </section>
 
-  <!-- Home -->
-  <section id="home" class="text-center py-20 relative">
-    <img src="imagens/banner.jpg" alt="Banner Acrilisson" class="w-full h-96 object-cover">
-    <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white">
-      <h2 class="text-5xl font-extrabold mb-4">Bem-vindo à Acrilisson!</h2>
-      <p class="text-xl">Especialistas na criação de peças únicas e personalizadas em acrílico.</p>
-    </div>
-  </section>
+    <main>
+        <section id="sobre" class="hidden">
+            <h2>Sobre Nós</h2>
+            <p>Bem-vindo à Acrilisson! Somos especialistas na criação de peças únicas e personalizadas em acrílico...</p>
+        </section>
 
-  <!-- Catálogo -->
-  <section id="catalogo" class="container mx-auto py-16">
-    <h3 class="text-3xl font-bold mb-8 text-center">Nosso Catálogo</h3>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white rounded shadow p-6">
-        <img src="imagens/foto(1).jpg" alt="Peça 1" class="mb-4 rounded">
-        <h4 class="text-xl font-bold mb-2">Display de Acrílico</h4>
-        <p>Perfeito para exposições e vitrines elegantes.</p>
-      </div>
-      <div class="bg-white rounded shadow p-6">
-        <img src="imagens/foto(2).jpg" alt="Peça 2" class="mb-4 rounded">
-        <h4 class="text-xl font-bold mb-2">Organizador Acrílico</h4>
-        <p>Ideal para organização com estilo e modernidade.</p>
-      </div>
-      <div class="bg-white rounded shadow p-6">
-        <img src="imagens/foto(3).jpg" alt="Peça 3" class="mb-4 rounded">
-        <h4 class="text-xl font-bold mb-2">Troféu Personalizado</h4>
-        <p>Reconheça conquistas com elegância e qualidade.</p>
-      </div>
-    </div>
-  </section>
+        <section id="produtos" class="hidden">
+            <h2>Galeria de Produtos</h2>
+            <div class="galeria-produtos">
+                <div class="produto hidden">
+                    <img src="Imagens/foto1.jpg" alt="Produto 1"> 
+                    <h3>Produto Exemplo</h3>
+                    <p>Descrição do produto.</p>
+                </div>
+            </div>
+            <p class="veja-mais">Veja nosso catálogo no Instagram: <a href="https://www.instagram.com/acrilisson_/" target="_blank">@acrilisson_</a></p>
+        </section>
 
-  <!-- Quem Somos -->
-  <section id="quem-somos" class="bg-white py-16">
-    <div class="container mx-auto text-center">
-      <h3 class="text-3xl font-bold mb-8">Quem Somos</h3>
-      <p class="max-w-2xl mx-auto text-lg">Somos especialistas na criação de peças únicas e personalizadas em acrílico. Nossa paixão é transformar ideias em realidade, com design inovador e acabamento impecável. Explore nossos produtos e descubra como o acrílico pode adicionar um toque de modernidade e elegância aos seus projetos.</p>
-      <p class="mt-4 max-w-2xl mx-auto text-lg">Trabalhamos com diversos tipos de projetos, desde pequenas peças decorativas até sinalizações e displays para empresas. Qualidade e satisfação do cliente são nossas prioridades.</p>
-    </div>
-  </section>
+        <section id="contato" class="hidden">
+            <h2>Fale Conosco</h2>
+            <p>Entre em contato via WhatsApp!</p>
+            <a href="https://wa.me/5511950394873" class="whatsapp-button" target="_blank">Solicitar Orçamento</a>
+        </section>
+    </main>
 
-  <!-- Contato -->
-  <section id="contato" class="container mx-auto py-16">
-    <h3 class="text-3xl font-bold mb-8 text-center">Fale Conosco</h3>
-    <div class="flex justify-center space-x-8">
-      <a href="https://wa.me/5511950394873" target="_blank" class="flex items-center space-x-2 text-green-600 hover:underline">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h3m4 0h3m4 0h3M4 6h16M4 14h16M4 18h16" />
-        </svg>
-        <span>WhatsApp</span>
-      </a>
+    <footer class="hidden">
+        <p>&copy; <span id="currentYear"></span> Acrilisson. Todos os direitos reservados.</p>
+    </footer>
 
-      <a href="https://www.instagram.com/acrilisson_/" target="_blank" class="flex items-center space-x-2 text-pink-500 hover:underline">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M12 7h.01M17 7h.01M7 12h.01M12 12h.01M17 12h.01M7 17h.01M12 17h.01M17 17h.01" />
-        </svg>
-        <span>Instagram</span>
-      </a>
-    </div>
-  </section>
+    <a href="https://wa.me/5511950394873" target="_blank" id="whatsapp-float">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" width="60">
+    </a>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-white text-center p-6">
-    <p>&copy; 2025 Acrilisson. Todos os direitos reservados.</p>
-  </footer>
+    <button id="darkModeToggle">🌙</button>
 
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target){ target.scrollIntoView({ behavior: 'smooth' }); }
+            });
+        });
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){ entry.target.classList.add('show'); }
+            });
+        });
+        document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+        document.getElementById('darkModeToggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
 </body>
 </html>
