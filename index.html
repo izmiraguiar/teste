@@ -1,81 +1,654 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acrilisson - Peças em Acrílico</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acrilisson - Excelência em Acrílico | Seu Parceiro em Soluções Personalizadas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff; /* Azul vibrante */
+            --secondary-color: #333; /* Texto principal */
+            --light-gray: #f8f9fa; /* Fundo de seções */
+            --white: #ffffff;
+            --dark-gray: #6c757d; /* Texto secundário */
+            --border-color: #e0e0e0; /* Borda de cards */
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: var(--secondary-color);
+            line-height: 1.6;
+            scroll-behavior: smooth; /* Rolagem suave para âncoras */
+        }
+
+        /* Utilidades */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1500x600/007bff/ffffff?text=Acrilisson+-+Qualidade+e+Design') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 120px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .hero h1 {
+            font-size: 3.8em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 1.1em;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        /* Product Sections */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-heading {
+            font-size: 2.8em;
+            margin-bottom: 60px;
+            color: var(--primary-color);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-info h3 {
+            font-size: 1.6em;
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: var(--secondary-color);
+        }
+
+        .product-info p {
+            font-size: 0.95em;
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+            height: 70px; /* Para manter cards com alturas semelhantes */
+            overflow: hidden;
+        }
+
+        .product-info .btn-details {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-info .btn-details:hover {
+            background-color: #0056b3;
+        }
+
+        /* About Us Section */
+        .about-us {
+            background-color: var(--light-gray);
+        }
+
+        .about-us p {
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+            font-size: 1.15em;
+            color: var(--secondary-color);
+        }
+
+        /* CTA WhatsApp Section */
+        .cta-whatsapp {
+            background-color: #25D366; /* WhatsApp Green */
+            color: var(--white);
+        }
+
+        .cta-whatsapp h2 {
+            font-size: 2.8em;
+            margin-bottom: 25px;
+        }
+
+        .cta-whatsapp p {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        .btn-whatsapp {
+            background-color: var(--white);
+            color: #25D366;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+
+        .btn-whatsapp img {
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 50px 0;
+            font-size: 0.95em;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links li {
+            margin: 0 18px 12px 18px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: var(--white);
+            font-size: 1.8em;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3em;
+            }
+            .hero p {
+                font-size: 1.1em;
+            }
+            .section-heading {
+                font-size: 2.2em;
+            }
+            .cta-whatsapp h2 {
+                font-size: 2.2em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+            .nav-links {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .nav-links li {
+                margin: 8px 15px;
+            }
+            .hero {
+                padding: 80px 20px;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            .section-padding {
+                padding: 60px 0;
+            }
+            .section-heading {
+                margin-bottom: 40px;
+            }
+            .cta-whatsapp h2 {
+                font-size: 1.8em;
+            }
+            .btn-whatsapp {
+                padding: 15px 30px;
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.8em;
+            }
+            .nav-links li {
+                margin: 5px 10px;
+            }
+            .hero h1 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 0.9em;
+            }
+            .product-info h3 {
+                font-size: 1.3em;
+            }
+            .product-info p {
+                font-size: 0.85em;
+                height: 60px;
+            }
+            .btn-details {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+            .footer-links {
+                flex-direction: column;
+            }
+            .footer-links li {
+                margin: 5px 0;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo">Acrilisson</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#personalizados">Personalizados</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <button id="darkModeToggle">🌙 Modo Escuro</button>
-
-  <section id="banner-principal" class="hidden">
-    <img src="imagens/banner.jpg" alt="Banner Acrilisson"> 
-  </section>
-
-  <main>
-    <section id="sobre" class="hidden">
-      <h2>Sobre Nós</h2>
-      <p>Bem-vindo à Acrilisson! Somos especialistas na criação de peças únicas e personalizadas em acrílico...</p>
+    <section id="home" class="hero">
+        <h1>Sua Ideia em Acrílico, Nossa Especialidade.</h1>
+        <p>Na Acrilisson, transformamos projetos em realidade com a mais alta qualidade em acrílico. Design, inovação e durabilidade em cada peça.</p>
+        <a href="#produtos" class="btn-primary">Explore Nosso Catálogo</a>
     </section>
 
-    <section id="produtos" class="hidden">
-      <h2>Galeria de Produtos</h2>
-      <div class="galeria-produtos">
-        <!-- Galeria com várias imagens -->
-<div class="produto hidden">
-      <img src="imagens/foto1.jpg" alt="Produto 1">
-      <h3>Produto 1</h3>
-      <p>Descrição do produto 1.</p>
-    </div>
-<div class="produto hidden">
-      <img src="imagens/foto2.jpg" alt="Produto 2">
-      <h3>Produto 2</h3>
-      <p>Descrição do produto 2.</p>
-    </div>
-<div class="produto hidden">
-      <img src="imagens/foto3.jpg" alt="Produto 3">
-      <h3>Produto 3</h3>
-      <p>Descrição do produto 3.</p>
-    </div>
-<div class="produto hidden">
-      <img src="imagens/foto4.jpg" alt="Produto 4">
-      <h3>Produto 4</h3>
-      <p>Descrição do produto 4.</p>
-    </div>
-<div class="produto hidden">
-      <img src="imagens/foto5.jpg" alt="Produto 5">
-      <h3>Produto 5</h3>
-      <p>Descrição do produto 5.</p>
-    </div>
-<div class="produto hidden">
-      <img src="imagens/foto6.jpg" alt="Produto 6">
-      <h3>Produto 6</h3>
-      <p>Descrição do produto 6.</p>
-    </div>
-      </div>
-      <p class="veja-mais">Veja nosso catálogo no Instagram: <a href="https://www.instagram.com/acrilisson_/" target="_blank">@acrilisson_</a></p>
+    <section id="produtos" class="section-padding text-center">
+        <div class="container">
+            <h2 class="section-heading">Produtos em Destaque</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/350x280/F0F8FF/333333?text=Porta-Retrato+Moderno" alt="Porta-Retrato Acrílico">
+                    <div class="product-info">
+                        <h3>Porta-Retratos e Molduras</h3>
+                        <p>Eternize seus momentos com elegância. Design clean e acabamento impecável para suas fotos.</p>
+                        <a href="#categoria-porta-retratos" class="btn-details">Ver Mais</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/350x280/F0F8FF/333333?text=Display+para+Loja" alt="Display para Loja">
+                    <div class="product-info">
+                        <h3>Displays e Expositores</h3>
+                        <p>Destaque produtos em lojas, museus e eventos. Soluções customizadas para sua vitrine.</p>
+                        <a href="#categoria-displays" class="btn-details">Ver Mais</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/350x280/F0F8FF/333333?text=Organizador+Multiuso" alt="Organizador Multiuso">
+                    <div class="product-info">
+                        <h3>Organizadores e Utilitários</h3>
+                        <p>Praticidade e beleza para o dia a dia. Organizadores de maquiagem, temperos e muito mais.</p>
+                        <a href="#categoria-organizadores" class="btn-details">Ver Mais</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/350x280/F0F8FF/333333?text=Letreiro+Acrilico+3D" alt="Letreiro Acrílico 3D">
+                    <div class="product-info">
+                        <h3>Letreiros e Sinalização</h3>
+                        <p>Comunique sua marca com impacto. Letreiros 3D e placas personalizadas com gravação a laser.</p>
+                        <a href="#categoria-letreiros" class="btn-details">Ver Mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="contato" class="hidden">
-      <h2>Fale Conosco</h2>
-      <p>Entre em contato via WhatsApp!</p>
-      <a href="https://wa.me/5511950394873" class="whatsapp-button" target="_blank">Solicitar Orçamento</a>
+    <section id="categoria-porta-retratos" class="section-padding text-center" style="background-color: var(--light-gray);">
+        <div class="container">
+            <h2 class="section-heading">Porta-Retratos e Molduras</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x250?text=Porta-Retrato+Imã" alt="Porta-Retrato com Imãs">
+                    <div class="product-info">
+                        <h3>Porta-Retrato Magnético</h3>
+                        <p>Design moderno com fácil troca de fotos. Acabamento impecável e alta transparência.</p>
+                        <a href="#" class="btn-details">Detalhes</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x250?text=Moldura+Acrilica" alt="Moldura Acrílica">
+                    <div class="product-info">
+                        <h3>Moldura Aérea Personalizável</h3>
+                        <p>Ideal para fotos maiores ou composições. Transparência que valoriza sua imagem.</p>
+                        <a href="#" class="btn-details">Detalhes</a>
+                    </div>
+                </div>
+                 <div class="product-card">
+                    <img src="https://via.placeholder.com/300x250?text=Porta-Retrato+Vertical" alt="Porta-Retrato Vertical">
+                    <div class="product-info">
+                        <h3>Porta-Retrato Vertical de Mesa</h3>
+                        <p>Perfeito para mesas de escritório ou criados-mudos. Elegância e praticidade.</p>
+                        <a href="#" class="btn-details">Detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <footer class="hidden">
-    <p>&copy; <span id="currentYear"></span> Acrilisson. Todos os direitos reservados.</p>
-  </footer>
+    <section id="categoria-displays" class="section-padding text-center">
+        <div class="container">
+            <h2 class="section-heading">Displays e Expositores</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x250?text=Caixa+Expositora" alt="Caixa Expositora">
+                    <div class="product-info">
+                        <h3>Caixas Expositoras Personalizadas</h3>
+                        <p>Proteja e exiba objetos de valor, coleções ou produtos com clareza cristalina.</p>
+                        <a href="#" class="btn-details">Detalhes</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x250?text=Display+Multinivel" alt="Display Multinível">
+                    <div class="product-info">
+                        <h3>Displays Multinível para Lojas</h3>
+                        <p>Crie uma apresentação dinâmica e atrativa para cosméticos, joias e acessórios.</p>
+                        <a href="#" class="btn-details">Detalhes</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x250?text=Suporte+Garrafas" alt="Suporte para Garrafas">
+                    <div class="product-info">
+                        <h3>Suportes para Garrafas e Bebidas</h3>
+                        <p>Exponha vinhos e champagnes com sofisticação em seu bar, adega ou restaurante.</p>
+                        <a href="#" class="btn-details">Detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <a href="https://wa.me/5511950394873" target="_blank" id="whatsapp-float">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" width="60">
-  </a>
+    <section id="categoria-organizadores" class="section-padding text-center" style="background-color: var(--light-gray);">
+        <div class="container">
+            <h2 class="section-heading">Organizadores Inteligentes</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x250?text=Org+Maquiagem" alt="Organizador de Maquiagem">
+                    <div class="product-info">
+                        <h3>Organizadores de Maquiagem</h3>
+                        <p>Gaveteiros e bandejas com divisórias para cosméticos, joias e acessórios.</p>
+                        <a href="#" class="btn-details">Detalhes</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x250?text=Org+Capsulas" alt="Organizador de Cápsulas">
+                    <div class="product-info">
+                        <h3>Porta-Cápsulas de Café Design</h3>
+                        <p>Mantenha suas cápsulas organizadas e acessíveis. Modelos de bancada e parede.</p>
+                        <a href="#" class="btn-details">Detalhes</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x250?text=Org+Temperos" alt="Organizador de Temperos">
+                    <div class="product-info">
+                        <h3>Organizadores de Temperos</h3>
+                        <p>Praticidade e elegância para sua cozinha. Compartimentos individuais e tampas.</p>
+                        <a href="#" class="btn-details">Detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
+    <section id="categoria-letreiros" class="section-padding text-center">
+        <div class="container">
+            <h2 class="section-heading">Letreiros e Sinalização</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x250/333333/F0F8FF?text=Letreiro+3D+Personalizado" alt="Letreiro 3D Personalizado">
+                    <div class="product-info">
+                        <h3>Letreiros 3D em Acrílico</h3>
+                        <p>Fachadas e recepções com alto impacto visual. Diversas cores e acabamentos.</p>
+                        <a href="#" class="btn-details">Detalhes</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x250/333333/F0F8FF?text=Placas+Sinalizacao" alt="Placas de Sinalização">
+                    <div class="product-info">
+                        <h3>Placas e Sinalização Interna/Externa</h3>
+                        <p>Comunique de forma clara e elegante. Placas personalizadas para qualquer ambiente.</p>
+                        <a href="#" class="btn-details">Detalhes</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x250/333333/F0F8FF?text=Painel+Luminoso" alt="Painel Luminoso Acrílico">
+                    <div class="product-info">
+                        <h3>Painéis Luminosos Acrílicos</h3>
+                        <p>Destaque sua marca dia e noite com tecnologia LED e design moderno.</p>
+                        <a href="#" class="btn-details">Detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="personalizados" class="section-padding text-center" style="background-color: var(--primary-color); color: var(--white);">
+        <div class="container">
+            <h2 class="section-heading" style="color: var(--white);">Peças Personalizadas e Sob Medida</h2>
+            <p style="font-size: 1.2em; max-width: 900px; margin: 0 auto 40px auto;">
+                Sua imaginação é o limite! Na Acrilisson, somos especialistas em transformar suas ideias mais complexas em realidade. Seja um projeto único, um brinde exclusivo ou uma solução industrial, nossa equipe está pronta para criar peças de acrílico personalizadas com a mais alta precisão e qualidade.
+            </p>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x250?text=Trofeu+Personalizado" alt="Troféu Personalizado">
+                    <div class="product-info">
+                        <h3>Troféus e Premiações Exclusivas</h3>
+                        <p>Celebre conquistas com troféus gravados a laser, únicos e com design sofisticado.</p>
+                        <a href="#" class="btn-details">Saiba Mais</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x250?text=Display+Iluminado" alt="Display Iluminado para Eventos">
+                    <div class="product-info">
+                        <h3>Displays Iluminados para Eventos</h3>
+                        <p>Destaque nomes, datas ou logos com a elegância do acrílico e a força da iluminação LED.</p>
+                        <a href="#" class="btn-details">Saiba Mais</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x250?text=Movel+Acrilico" alt="Móvel Acrílico">
+                    <div class="product-info">
+                        <h3>Mobiliário e Peças de Design</h3>
+                        <p>Mesas de centro, consoles e outros móveis que adicionam transparência e modernidade ao seu ambiente.</p>
+                        <a href="#" class="btn-details">Saiba Mais</a>
+                    </div>
+                </div>
+                 <div class="product-card">
+                    <img src="https://via.placeholder.com/300x250?text=Projetos+Especiais" alt="Projetos Especiais em Acrílico">
+                    <div class="product-info">
+                        <h3>Projetos Especiais e Industriais</h3>
+                        <p>Desenvolvemos soluções complexas em acrílico para as mais diversas aplicações e setores.</p>
+                        <a href="#" class="btn-details">Saiba Mais</a>
+                    </div>
+                </div>
+            </div>
+            <a href="#contato" class="btn-primary" style="margin-top: 50px;">Solicite um Orçamento Personalizado</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="about-us section-padding text-center">
+        <div class="container">
+            <h2 class="section-heading">Sobre a Acrilisson</h2>
+            <p>Com vasta experiência no mercado de acrílicos, a Acrilisson se dedica a transformar a versatilidade e a beleza do acrílico em soluções inovadoras e de alta qualidade. Nosso compromisso é com a excelência em cada detalhe, desde o design até a fabricação, garantindo a satisfação de nossos clientes com produtos duráveis, esteticamente superiores e sob medida para suas necessidades.</p>
+            <p>Nossa paixão por acrílico nos impulsiona a criar peças que não apenas atendem, mas superam as expectativas, seja para decoração, organização, comunicação visual ou projetos especiais. Contamos com tecnologia de ponta e uma equipe especializada para materializar suas ideias com precisão e maestria.</p>
+        </div>
+    </section>
+
+    <section id="contato" class="cta-whatsapp section-padding text-center">
+        <div class="container">
+            <h2>Fale Conosco e Peça Seu Orçamento!</h2>
+            <p>Tire suas dúvidas, solicite um orçamento personalizado ou converse diretamente com nossa equipe. Estamos prontos para transformar sua ideia em realidade!</p>
+            <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20pe%C3%A7as%20em%20acr%C3%ADlico." target="_blank" class="btn-whatsapp">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="24" height="24" style="vertical-align: middle; margin-right: 12px;">
+                Fale Conosco pelo WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#personalizados">Personalizados</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="#">Política de Privacidade</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/ACRILISSON_INSTAGRAM/" target="_blank" aria-label="Instagram"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="28" height="28"></a>
+                </div>
+            <p style="margin-top: 25px;">&copy; 2025 Acrilisson. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>
